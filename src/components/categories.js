@@ -13,10 +13,16 @@ function Item(props) {
       <img src={`assets/${image}`} className="image-product" />
       <p className="name">{name}</p>
       <p className="description">{description}</p>
-      <p>
-        R$<span className="price">{price.toLocaleString("pt-BR")}</span>
-      </p>
-      <img src="assets/checkmark-circle 2.png" className="checkmark" />
+      <div className="bottom-item">
+        <p>
+          R$<span className="price">{price.toLocaleString("pt-BR")}</span>
+        </p>
+        <div className="amount">
+          <button className="decrease">-</button>
+          <span>1</span>
+          <button className="increase">+</button>
+        </div>
+      </div>
     </button>
   );
 }

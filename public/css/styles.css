@@ -103,6 +103,31 @@ main {
   font-size: 15px;
 }
 
+.bottom-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.amount {
+  display: flex;
+  width: 50px;
+  justify-content: space-between;
+}
+
+.amount button {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+}
+
+.increase {
+  color: #3ebb3c;
+}
+
+.decrease {
+  color: #cf2b2b;
+}
 /* selected item styles */
 .selected {
   border: 5px solid #32b72f;
