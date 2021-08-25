@@ -74,13 +74,16 @@ const CATEGORIES = [
 ];
 
 function Item(props) {
+  const { category } = props;
+  const { image, name, description, price } = props.itemData;
+
   return (
-    <button className={`${props.category} item`} onclick="selectButton(this)">
-      <img src={`assets/${props.itemData.image}`} className="image-product" />
-      <p className="name">{props.itemData.name}</p>
-      <p className="description">{props.itemData.description}</p>
+    <button className={`${category} item`} onclick="selectButton(this)">
+      <img src={`assets/${image}`} className="image-product" />
+      <p className="name">{name}</p>
+      <p className="description">{description}</p>
       <p>
-        R$<span className="price">{props.itemData.price}</span>
+        R$<span className="price">{price}</span>
       </p>
       <img src="assets/checkmark-circle 2.png" className="checkmark" />
     </button>
@@ -88,16 +91,14 @@ function Item(props) {
 }
 
 function Category(props) {
+  const { description, category, items } = props.categoryData;
+
   return (
     <div className="category">
-      <p>{props.categoryData.description}</p>
+      <p>{description}</p>
       <div className="products">
-        {props.categoryData.items.map((item, index) => (
-          <Item
-            category={props.categoryData.category}
-            itemData={item}
-            key={index}
-          />
+        {items.map((item, index) => (
+          <Item category={category} itemData={item} key={index} />
         ))}
       </div>
     </div>
