@@ -1,5 +1,5 @@
 import { useState } from "react";
-import addItem from "../scripts/selectitem";
+import controlOrder from "../scripts/selectitem";
 import CATEGORIES from "./data";
 
 function Item(props) {
@@ -7,24 +7,27 @@ function Item(props) {
   const { image, name, description, price } = props.itemData;
   const [item, setItem] = useState("item");
   const [quantity, setQuantity] = useState(1);
-  let amount;
 
   function SelectItem(deselect) {
     if (item === "item") {
       setItem("item selected");
+      controlOrder({ name, price, category, operation: "add" });
     }
 
     if (deselect) {
       setItem("item");
       setQuantity(1);
+      controlOrder({ name, category, operation: "remove" });
     }
   }
 
   function changeQuantity(operator) {
     if (operator === "+") {
       setQuantity(quantity + 1);
+      controlOrder({ name, category, operation: "increase" });
     } else {
       setQuantity(quantity - 1);
+      controlOrder({ name, category, operation: "decrease" });
       if (quantity - 1 === 0) {
         SelectItem(true);
       }
