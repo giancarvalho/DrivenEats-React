@@ -13,36 +13,32 @@ function addItem(name, price, category) {
   ORDER[category].push({ item: name, price, amount: 1 });
 }
 
-function decreaseAmount(name, category) {
-  let selectedCategory = ORDER[category];
-  selectedCategory.forEach((product) => {
-    if (product.item === name) {
-      product.amount -= 1;
-    }
-  });
-}
+function changeAmount(name, category, operation) {
+  const selectedCategory = ORDER[category];
 
-function increaseAmount(name, category) {
-  let selectedCategory = ORDER[category];
-  selectedCategory.forEach((product) => {
-    if (product.item === name) {
-      product.amount += 1;
-    }
-  });
-  console.log(ORDER);
+  if (operation === "decrease") {
+    selectedCategory.forEach((product) => {
+      if (product.item === name) {
+        product.amount -= 1;
+      }
+    });
+  } else {
+    selectedCategory.forEach((product) => {
+      if (product.item === name) {
+        product.amount += 1;
+      }
+    });
+  }
 }
 
 export default function controlOrder({ name, price, category, operation }) {
-  console.log(ORDER);
   if (operation === "add") {
     addItem(name, price, category);
   } else if (operation === "remove") {
     removeItem(category, name);
-  } else if (operation === "decrease") {
-    decreaseAmount(name, category);
   } else {
     console.log(category);
-    increaseAmount(name, category);
+    changeAmount(name, category, operation);
   }
 }
 

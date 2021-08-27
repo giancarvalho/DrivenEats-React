@@ -1,6 +1,7 @@
 import { useState } from "react";
 import controlOrder from "../scripts/selectitem";
 import CATEGORIES from "./data";
+import calculateTotal from "../scripts/calculatetotal";
 
 function Item(props) {
   const { category } = props;
@@ -19,6 +20,8 @@ function Item(props) {
       setQuantity(1);
       controlOrder({ name, category, operation: "remove" });
     }
+
+    console.log(calculateTotal());
   }
 
   function changeQuantity(operator) {
