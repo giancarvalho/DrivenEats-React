@@ -8,9 +8,7 @@ function removeItem(category, name) {
   ORDER[category] = ORDER[category].filter((object) => object.item !== name);
 }
 
-export default function SelectItem(name, price, category) {
-  console.log(name + " " + price + " " + category);
-
+export default function addItem(name, price, category) {
   if (isNewItem(ORDER[category], name)) {
     ORDER[category].push({ item: name, price });
   } else {
