@@ -6,6 +6,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #e5e5e5;
 }
 
 .category > p,
@@ -47,7 +48,6 @@ header p {
 
 /* beginning main styles */
 main {
-  background-color: #e5e5e5;
   width: 100%;
   padding: 112px 0 92px 0;
 }
@@ -155,12 +155,23 @@ main {
   left: 0;
   background-color: #ffffff;
   z-index: 1;
+  pointer-events: none;
+}
+
+.bottom-bar.active {
+  pointer-events: initial;
+}
+
+.bottom-bar a {
+  width: 90%;
+  height: 60%;
 }
 
 .checkout {
-  width: 90%;
-  min-height: 60%;
+  width: 100%;
+  height: 100%;
   font-size: 20px;
+  font-weight: 700;
   border-radius: 50px;
   padding: 2% 15%;
   border: none;
@@ -168,7 +179,7 @@ main {
   color: #ffffff;
 }
 
-.checkout.active {
+.active .checkout {
   background-color: #32b72f;
 }
 
