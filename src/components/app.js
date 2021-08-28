@@ -31,7 +31,7 @@ export default function App() {
             <Content readyToOrder={readyToOrder} />
             <BottomBar active={{ status, text }} />
           </Route>
-          <Route path="/review">
+          <Route exact path="/review">
             <ConfirmOrder />
           </Route>
         </Switch>

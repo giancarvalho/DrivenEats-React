@@ -6,6 +6,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #e5e5e5;
 }
 
 .category > p,
@@ -47,7 +48,6 @@ header p {
 
 /* beginning main styles */
 main {
-  background-color: #e5e5e5;
   width: 100%;
   padding: 112px 0 92px 0;
 }
@@ -208,7 +208,6 @@ main {
 }
 
 .send {
-  border: none;
   background-color: #ffffff;
   height: 50%;
   width: 88%;
@@ -285,4 +284,11 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.review-order {
+  margin: 0 auto;
+  height: 200px;
+  width: 90%;
+  background-color: blue;
 }
