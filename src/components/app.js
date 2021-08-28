@@ -1,7 +1,9 @@
+import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BottomBar from "./bottombar";
+import ConfirmOrder from "./confirmorder";
 import Content from "./content";
 import Header from "./header";
-import { useState } from "react";
 import ORDER from "./order";
 
 export default function App() {
@@ -23,8 +25,17 @@ export default function App() {
   return (
     <div className="website">
       <Header />
-      <Content readyToOrder={readyToOrder} />
-      <BottomBar active={{ status, text }} />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Content readyToOrder={readyToOrder} />
+            <BottomBar active={{ status, text }} />
+          </Route>
+          <Route path="/review">
+            <ConfirmOrder />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
