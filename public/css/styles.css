@@ -94,14 +94,13 @@ main {
 
 .item p {
   font-weight: bold;
-  width: 100%;
 }
 
 .item .description {
   height: 40px;
   color: #a6a6a6;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .bottom-item {
