@@ -8,7 +8,6 @@ function Item(props) {
   const { image, name, description, price } = props.itemData;
   const [item, setItem] = useState("item");
   const [quantity, setQuantity] = useState(1);
-  console.log(readyToOrder);
 
   function SelectItem(deselect) {
     if (item === "item") {

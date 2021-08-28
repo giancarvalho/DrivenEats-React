@@ -41,7 +41,7 @@ export default function App() {
           <Route
             exact
             path="/review"
-            render={(props) => <ConfirmOrder />}
+            render={(props) => <ConfirmOrder status={status} {...props} />}
           ></Route>
         </Switch>
       </Router>

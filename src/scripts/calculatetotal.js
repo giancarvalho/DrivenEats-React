@@ -16,5 +16,5 @@ export default function calculateTotal() {
     totalOrder += sumCategory(ORDER[category]);
   });
 
-  return totalOrder;
+  return totalOrder.toFixed(2);
 }
