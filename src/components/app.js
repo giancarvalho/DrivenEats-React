@@ -3,6 +3,8 @@ import Content from "./content";
 import Header from "./header";
 import { useState } from "react";
 import ORDER from "./order";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ConfirmOrder from "./confirmorder";
 
 export default function App() {
   const [status, setStatus] = useState("disabled");
@@ -23,8 +25,26 @@ export default function App() {
   return (
     <div className="website">
       <Header />
-      <Content readyToOrder={readyToOrder} />
-      <BottomBar active={{ status, text }} />
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <>
+                {" "}
+                <Content readyToOrder={readyToOrder} {...props} />
+                <BottomBar active={{ status, text }} {...props} />
+              </>
+            )}
+          ></Route>
+          <Route
+            exact
+            path="/review"
+            render={(props) => <ConfirmOrder />}
+          ></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
