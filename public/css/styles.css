@@ -172,107 +172,69 @@ main {
   background-color: #32b72f;
 }
 
-/* modal windows styles */
-.modal {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #50d074;
-  position: fixed;
-  height: 34vh;
-  width: 90vw;
-  max-width: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 9px;
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
-  padding: 20px;
-  color: #ffffff;
-  z-index: 3;
-}
-
-.modal.active {
-  display: flex;
-}
-
-.send {
-  border: none;
-  background-color: #ffffff;
-  height: 50%;
-  width: 88%;
-  border-radius: 100px;
-  color: #50d074;
-  font-size: 18px;
-  margin: 10px auto;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.cancel {
-  border: 0;
-  background-color: transparent;
-  font-weight: bold;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  background-color: rgb(255, 255, 255, 0.9);
-  pointer-events: none;
-}
-
-.overlay.active {
-  display: initial;
-}
-
-/* address window style */
-.address > div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  height: 45%;
-}
-
-.address input {
-  border: 1px solid #c6c6c6;
-  height: 50%;
-  width: 95%;
-  border-radius: 5px;
-  text-align: center;
-  margin-top: 7px;
-}
-
 /* confirm window style */
-.order-items {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 10px 0px;
-}
-.order-items > div {
-  display: flex;
-  justify-content: space-between;
-}
 
 .total {
   font-weight: bold;
 }
 
-.confirm-buttons {
-  height: 100%;
+.review-order {
+  margin: 0 auto;
+  height: 200px;
+  width: 90%;
+}
+
+.review-order .category {
+  margin: 0;
+}
+
+.order-container {
   width: 100%;
+  height: auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+}
+
+.order-container ul {
+  width: 100%;
+}
+
+.order-container li {
+  width: 100%;
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.confirm-buttons {
+  height: 40%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+
+.confirm,
+.cancel {
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+}
+
+.confirm {
+  height: 60%;
+  width: 80%;
+  background-color: #50d074;
+  border-radius: 100px;
+  color: #ffffff;
+}
+
+.cancel {
+  text-decoration: none;
+  color: #777777;
 }

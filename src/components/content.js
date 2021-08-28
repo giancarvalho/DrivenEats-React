@@ -6,8 +6,6 @@ export default function Content({ readyToOrder }) {
   return (
     <main>
       <Categories readyToOrder={readyToOrder} />
-      <AddressModal />
-      <ConfirmOrder />
 
       <div className="overlay"></div>
     </main>
