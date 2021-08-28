@@ -2,20 +2,29 @@ import BottomBar from "./bottombar";
 import Content from "./content";
 import Header from "./header";
 import { useState } from "react";
-import readyToOrder from "./readytoorder";
+import ORDER from "./order";
 
 export default function App() {
   const [status, setStatus] = useState("disabled");
+  const [text, setText] = useState("Selecione os 3 itens para fechar o pedido");
 
-  if (readyToOrder()) {
-    setStatus("active");
+  function readyToOrder() {
+    const { food, drink, dessert } = ORDER;
+
+    if (food.length > 0 && drink.length > 0 && dessert.length > 0) {
+      setStatus("active");
+      setText("Fechar pedido");
+    } else {
+      setStatus("disabled");
+      setText("Selecione os 3 itens para fechar o pedido");
+    }
   }
 
   return (
     <div className="website">
       <Header />
-      <Content />
-      <BottomBar status={status} />
+      <Content readyToOrder={readyToOrder} />
+      <BottomBar active={{ status, text }} />
     </div>
   );
 }

@@ -4,10 +4,11 @@ import CATEGORIES from "./data";
 import calculateTotal from "../scripts/calculatetotal";
 
 function Item(props) {
-  const { category } = props;
+  const { category, readyToOrder } = props;
   const { image, name, description, price } = props.itemData;
   const [item, setItem] = useState("item");
   const [quantity, setQuantity] = useState(1);
+  console.log(readyToOrder);
 
   function SelectItem(deselect) {
     if (item === "item") {
@@ -21,7 +22,7 @@ function Item(props) {
       controlOrder({ name, category, operation: "remove" });
     }
 
-    console.log(calculateTotal());
+    readyToOrder();
   }
 
   function changeQuantity(operator) {
@@ -38,7 +39,7 @@ function Item(props) {
   }
 
   return (
-    <button className={`${category} ${item}`} onClick={() => SelectItem()}>
+    <div className={item} onClick={() => SelectItem()}>
       <img src={`assets/${image}`} className="image-product" />
       <p className="name">{name}</p>
       <p className="description">{description}</p>
@@ -56,27 +57,34 @@ function Item(props) {
           </button>
         </div>
       </div>
-    </button>
+    </div>
   );
 }
 
 function Category(props) {
   const { description, category, items } = props.categoryData;
+  const { readyToOrder } = props;
 
   return (
     <div className="category">
       <p>{description}</p>
       <div className="products">
         {items.map((item, index) => (
-          <Item category={category} itemData={item} index={index} key={index} />
+          <Item
+            category={category}
+            itemData={item}
+            index={index}
+            key={index}
+            readyToOrder={readyToOrder}
+          />
         ))}
       </div>
     </div>
   );
 }
 
-export default function Categories() {
+export default function Categories({ readyToOrder }) {
   return CATEGORIES.map((category, index) => (
-    <Category categoryData={category} key={index} />
+    <Category categoryData={category} key={index} readyToOrder={readyToOrder} />
   ));
 }

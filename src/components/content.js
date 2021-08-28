@@ -2,10 +2,10 @@ import AddressModal from "./adressmodal";
 import Categories from "./categories";
 import ConfirmOrder from "./confirmorder";
 
-export default function Content() {
+export default function Content({ readyToOrder }) {
   return (
     <main>
-      <Categories />
+      <Categories readyToOrder={readyToOrder} />
       <AddressModal />
       <ConfirmOrder />
 

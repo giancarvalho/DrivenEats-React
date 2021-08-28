@@ -1,11 +1,9 @@
 export default function BottomBar(props) {
-  const { status } = props.status;
+  const { status, text } = props.active;
 
   return (
-    <div className={`bottom-bar ${status}`}>
-      <button className="checkout">
-        Selecione os 3 itens para fechar o pedido
-      </button>
+    <div className={`bottom-bar`}>
+      <button className={`checkout ${status}`}>{text}</button>
     </div>
   );
 }
