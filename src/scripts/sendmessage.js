@@ -1,6 +1,6 @@
 import ORDER from "../components/order";
 import calculateTotal from "./calculatetotal";
-import formatedAmount from "./formatedamount";
+import formatAmount from "./formatAmount";
 const RESTAURANT_NUMBER = "553099990000";
 
 export default function sendMessage() {
@@ -10,14 +10,14 @@ export default function sendMessage() {
   let dessertList = "";
 
   food.forEach(
-    (dish) => (foodList += `${dish.item} ${formatedAmount(dish.amount)}\n`)
+    (dish) => (foodList += `${dish.item} ${formatAmount(dish.amount)}\n`)
   );
   drink.forEach(
-    (drink) => (drinkList += `${drink.item} ${formatedAmount(drink.amount)}\n`)
+    (drink) => (drinkList += `${drink.item} ${formatAmount(drink.amount)}\n`)
   );
   dessert.forEach(
     (dessert) =>
-      (dessertList += `${dessert.item} ${formatedAmount(dessert.amount)}\n`)
+      (dessertList += `${dessert.item} ${formatAmount(dessert.amount)}\n`)
   );
 
   let message = encodeURIComponent(

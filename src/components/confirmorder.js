@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import calculateTotal from "../scripts/calculatetotal";
-import formatedAmount from "../scripts/formatedamount";
+import formatAmount from "../scripts/formatAmount";
 import sendMessage from "../scripts/sendmessage";
 import ORDER from "./order";
 
@@ -14,7 +14,7 @@ function renderItems(category) {
   return category.map((item, index) => (
     <li key={index}>
       <p>
-        {item.item} {formatedAmount(item.amount)}
+        {item.item} {formatAmount(item.amount)}
       </p>
       <p>R${(item.price * item.amount).toFixed(2)}</p>
     </li>
