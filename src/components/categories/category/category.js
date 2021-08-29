@@ -1,11 +1,11 @@
 import { useState } from "react";
-import manageOrder from "./selectitem";
+import manageOrder from "./scripts/selectitem";
 
 function Item(props) {
   const { category, readyToOrder } = props;
   const { image, name, description, price } = props.itemData;
   const [item, setItem] = useState("item");
-  const [quantity, setQuantity] = useState(1);
+  const [amount, setAmount] = useState(1);
 
   function selectItem(deselect) {
     if (item === "item") {
@@ -15,7 +15,7 @@ function Item(props) {
 
     if (deselect) {
       setItem("item");
-      setQuantity(1);
+      setAmount(1);
       manageOrder({ name, category, operation: "remove" });
     }
 
@@ -24,12 +24,12 @@ function Item(props) {
 
   function changeQuantity(operator) {
     if (operator === "+") {
-      setQuantity(quantity + 1);
+      setAmount(amount + 1);
       manageOrder({ name, category, operation: "increase" });
     } else {
-      setQuantity(quantity - 1);
+      setAmount(amount - 1);
       manageOrder({ name, category, operation: "decrease" });
-      if (quantity - 1 === 0) {
+      if (amount - 1 === 0) {
         selectItem(true);
       }
     }
@@ -42,13 +42,13 @@ function Item(props) {
       <p className="description">{description}</p>
       <div className="bottom-item">
         <p>
-          R$<span className="price">{price.toLocaleString("pt-BR")}</span>
+          R$<span className="price">{price.toFixed(2)}</span>
         </p>
         <div className="amount">
           <button className="decrease" onClick={() => changeQuantity("-")}>
             -
           </button>
-          <span>{quantity}</span>
+          <span>{amount}</span>
           <button className="increase" onClick={() => changeQuantity("+")}>
             +
           </button>

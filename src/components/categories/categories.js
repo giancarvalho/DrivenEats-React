@@ -1,4 +1,4 @@
-import Category from "./category";
+import Category from "./category/category";
 import AVAILABLE_ITEMS from "../data/availableItems";
 
 export default function Categories({ readyToOrder }) {

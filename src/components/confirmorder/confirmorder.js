@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import calculateTotal from "./calculatetotal";
-import formatAmount from "./formatAmount";
-import sendMessage from "./sendmessage";
+import calculateTotal from "./scripts/calculatetotal";
+import formatAmount from "./scripts/formatAmount";
+import sendMessage from "./scripts/sendmessage";
 import ORDER from "../data/order";
 
 function Items() {
