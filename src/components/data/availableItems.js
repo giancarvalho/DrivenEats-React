@@ -1,4 +1,4 @@
-const CATEGORIES = [
+const AVAILABLE_ITEMS = [
   {
     category: "food",
     description: "Primeiro, seu prato",
@@ -73,4 +73,4 @@ const CATEGORIES = [
   },
 ];
 
-export default CATEGORIES;
+export default AVAILABLE_ITEMS;

@@ -1,4 +1,4 @@
-import ORDER from "../order";
+import ORDER from "../data/order";
 
 function removeItem(category, name) {
   ORDER[category] = ORDER[category].filter((object) => object.item !== name);

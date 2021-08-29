@@ -1,8 +1,8 @@
 import Category from "./category";
-import CATEGORIES from "../data";
+import AVAILABLE_ITEMS from "../data/availableItems";
 
 export default function Categories({ readyToOrder }) {
-  return CATEGORIES.map((category, index) => (
+  return AVAILABLE_ITEMS.map((category, index) => (
     <Category categoryData={category} key={index} readyToOrder={readyToOrder} />
   ));
 }

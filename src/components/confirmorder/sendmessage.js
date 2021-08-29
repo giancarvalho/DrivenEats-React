@@ -1,4 +1,4 @@
-import ORDER from "../components/order";
+import ORDER from "../data/order";
 import calculateTotal from "./calculatetotal";
 import formatAmount from "./formatAmount";
 const RESTAURANT_NUMBER = "553099990000";

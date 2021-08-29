@@ -1,9 +1,9 @@
-import BottomBar from "../bottombar";
-import Header from "../header";
+import BottomBar from "../bottombar/bottombar";
+import Header from "../header/header";
 import { useState } from "react";
-import ORDER from "../order";
+import ORDER from "../data/order";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ConfirmOrder from "../confirmorder";
+import ConfirmOrder from "../confirmorder/confirmorder";
 import Categories from "../categories/categories";
 
 export default function App() {

@@ -1,4 +1,4 @@
-import ORDER from "../components/order";
+import ORDER from "../data/order";
 
 function sumCategory(category) {
   let totalCategory = 0;
