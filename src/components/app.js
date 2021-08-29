@@ -1,5 +1,4 @@
 import BottomBar from "./bottombar";
-import Content from "./content";
 import Header from "./header";
 import { useState } from "react";
 import ORDER from "./order";

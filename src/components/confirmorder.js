@@ -1,22 +1,8 @@
 import { Link } from "react-router-dom";
 import calculateTotal from "../scripts/calculatetotal";
+import formatedAmount from "../scripts/formatedamount";
+import sendMessage from "../scripts/sendmessage";
 import ORDER from "./order";
-
-function sendMessage() {
-  const { food, drink, dessert } = ORDER;
-  let foodList = "";
-  let drinkList = "";
-  let dessertList = "";
-
-  food.forEach((item) => (foodList += `${item.item} \n`));
-  drink.forEach((item) => (drinkList += `${item.item} \n`));
-  dessert.forEach((item) => (dessertList += `${item.item} \n`));
-
-  let message = encodeURIComponent(
-    `Olá, gostaria de fazer o pedido: \n - Prato: ${foodList} \n - Bebida: ${drinkList} \n - Sobremesa: ${dessertList} \n Total: R$ ${calculateTotal()} \n`
-  );
-  window.open(`https://wa.me/5532999744968?text=${message}`, "_self");
-}
 
 function Items() {
   const categories = Object.keys(ORDER);
@@ -27,10 +13,10 @@ function Items() {
 function renderItems(category) {
   return category.map((item, index) => (
     <li key={index}>
-      <p>{item.item}</p>
       <p>
-        {item.amount} x R${item.price.toFixed(2)}
+        {item.item} {formatedAmount(item.amount)}
       </p>
+      <p>R${(item.price * item.amount).toFixed(2)}</p>
     </li>
   ));
 }
