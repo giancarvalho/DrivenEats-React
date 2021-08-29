@@ -5,6 +5,7 @@ import { useState } from "react";
 import ORDER from "./order";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ConfirmOrder from "./confirmorder";
+import Categories from "./content";
 
 export default function App() {
   const [status, setStatus] = useState("disabled");
@@ -32,16 +33,14 @@ export default function App() {
             path="/"
             render={(props) => (
               <>
-                <Content readyToOrder={readyToOrder} {...props} />
+                <main>
+                  <Categories readyToOrder={readyToOrder} {...props} />
+                </main>
                 <BottomBar active={{ status, text }} {...props} />
               </>
             )}
           ></Route>
-          <Route
-            exact
-            path="/review"
-            render={(props) => <ConfirmOrder status={status} {...props} />}
-          ></Route>
+          <Route exact path="/review" component={ConfirmOrder}></Route>
         </Switch>
       </Router>
     </div>

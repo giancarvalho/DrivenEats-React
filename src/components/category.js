@@ -8,7 +8,7 @@ function Item(props) {
   const [item, setItem] = useState("item");
   const [quantity, setQuantity] = useState(1);
 
-  function SelectItem(deselect) {
+  function selectItem(deselect) {
     if (item === "item") {
       setItem("item selected");
       manageOrder({ name, price, category, operation: "add" });
@@ -31,13 +31,13 @@ function Item(props) {
       setQuantity(quantity - 1);
       manageOrder({ name, category, operation: "decrease" });
       if (quantity - 1 === 0) {
-        SelectItem(true);
+        selectItem(true);
       }
     }
   }
 
   return (
-    <div className={item} onClick={() => SelectItem()}>
+    <div className={item} onClick={() => selectItem()}>
       <img src={`assets/${image}`} className="image-product" />
       <p className="name">{name}</p>
       <p className="description">{description}</p>
@@ -59,7 +59,7 @@ function Item(props) {
   );
 }
 
-function Category(props) {
+export default function Category(props) {
   const { description, category, items } = props.categoryData;
   const { readyToOrder } = props;
 
@@ -79,11 +79,4 @@ function Category(props) {
       </div>
     </div>
   );
-}
-
-export default function Categories({ readyToOrder }) {
-  console.log("rendering categories");
-  return CATEGORIES.map((category, index) => (
-    <Category categoryData={category} key={index} readyToOrder={readyToOrder} />
-  ));
 }

@@ -1,9 +1,8 @@
-import Categories from "./categories";
+import Category from "./category";
+import CATEGORIES from "./data";
 
-export default function Content({ readyToOrder }) {
-  return (
-    <main>
-      <Categories readyToOrder={readyToOrder} />
-    </main>
-  );
+export default function Categories({ readyToOrder }) {
+  return CATEGORIES.map((category, index) => (
+    <Category categoryData={category} key={index} readyToOrder={readyToOrder} />
+  ));
 }
