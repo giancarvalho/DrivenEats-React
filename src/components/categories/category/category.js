@@ -1,20 +1,33 @@
 import { useState } from "react";
+import ORDER from "../../data/order";
 import manageOrder from "./scripts/selectitem";
 
+function isItemInOrder(category, name) {
+  return ORDER[category].some((item) => item.item === name);
+}
+
 function Item(props) {
-  const { category, readyToOrder } = props;
+  const { category, readyToOrder, cancel } = props;
   const { image, name, description, price } = props.itemData;
-  const [item, setItem] = useState("item");
+  const [itemClass, setItemClass] = useState("item");
   const [amount, setAmount] = useState(1);
 
+  if (cancel) {
+    if (isItemInOrder(category, name)) {
+      selectItem();
+    }
+  }
+
   function selectItem(deselect) {
-    if (item === "item") {
-      setItem("item selected");
-      manageOrder({ name, price, category, operation: "add" });
+    if (itemClass === "item") {
+      setItemClass("item selected");
+      if (!isItemInOrder(category, name)) {
+        manageOrder({ name, price, category, operation: "add" });
+      }
     }
 
     if (deselect) {
-      setItem("item");
+      setItemClass("item");
       setAmount(1);
       manageOrder({ name, category, operation: "remove" });
     }
@@ -36,7 +49,7 @@ function Item(props) {
   }
 
   return (
-    <div className={item} onClick={() => selectItem()}>
+    <div className={itemClass} onClick={() => selectItem()}>
       <img src={`assets/${image}`} className="image-product" />
       <p className="name">{name}</p>
       <p className="description">{description}</p>
@@ -60,7 +73,7 @@ function Item(props) {
 
 export default function Category(props) {
   const { description, category, items } = props.categoryData;
-  const { readyToOrder } = props;
+  const { readyToOrder, cancel } = props;
 
   return (
     <div className="category">
@@ -70,9 +83,9 @@ export default function Category(props) {
           <Item
             category={category}
             itemData={item}
-            index={index}
-            key={index}
             readyToOrder={readyToOrder}
+            cancel={cancel}
+            key={index}
           />
         ))}
       </div>

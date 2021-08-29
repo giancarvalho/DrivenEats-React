@@ -21,7 +21,7 @@ function renderItems(category) {
   ));
 }
 
-export default function ConfirmOrder() {
+export default function ConfirmOrder({ setCancel }) {
   return (
     <main>
       <div className="review-order">
@@ -41,7 +41,7 @@ export default function ConfirmOrder() {
           <button className="confirm" onClick={() => sendMessage()}>
             Tudo certo, pode pedir
           </button>
-          <Link to="/" className="cancel">
+          <Link to="/" className="cancel" onClick={() => setCancel(true)}>
             Cancelar
           </Link>
         </div>
