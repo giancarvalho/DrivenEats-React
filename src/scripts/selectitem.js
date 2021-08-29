@@ -40,6 +40,7 @@ export default function controlOrder({ name, price, category, operation }) {
     console.log(category);
     changeAmount(name, category, operation);
   }
+  console.log(ORDER);
 }
 
 //isNewItem(ORDER[category], name))

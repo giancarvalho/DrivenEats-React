@@ -1,7 +1,7 @@
 import { useState } from "react";
 import controlOrder from "../scripts/selectitem";
 import CATEGORIES from "./data";
-import calculateTotal from "../scripts/calculatetotal";
+import ORDER from "./order";
 
 function Item(props) {
   const { category, readyToOrder } = props;
@@ -83,7 +83,12 @@ function Category(props) {
 }
 
 export default function Categories({ readyToOrder }) {
+  console.log("rendering categories");
   return CATEGORIES.map((category, index) => (
     <Category categoryData={category} key={index} readyToOrder={readyToOrder} />
   ));
+}
+
+if(ORDER.food.length > 0){
+  
 }
