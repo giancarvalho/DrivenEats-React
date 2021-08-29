@@ -32,7 +32,6 @@ export default function App() {
             path="/"
             render={(props) => (
               <>
-                {" "}
                 <Content readyToOrder={readyToOrder} {...props} />
                 <BottomBar active={{ status, text }} {...props} />
               </>
