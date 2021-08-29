@@ -1,10 +1,10 @@
-import BottomBar from "./bottombar";
-import Header from "./header";
+import BottomBar from "../bottombar";
+import Header from "../header";
 import { useState } from "react";
-import ORDER from "./order";
+import ORDER from "../order";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ConfirmOrder from "./confirmorder";
-import Categories from "./content";
+import ConfirmOrder from "../confirmorder";
+import Categories from "../categories/categories";
 
 export default function App() {
   const [status, setStatus] = useState("disabled");

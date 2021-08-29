@@ -1,6 +1,6 @@
 import { useState } from "react";
-import manageOrder from "../scripts/selectitem";
-import CATEGORIES from "./data";
+import manageOrder from "./selectitem";
+import CATEGORIES from "../data";
 
 function Item(props) {
   const { category, readyToOrder } = props;

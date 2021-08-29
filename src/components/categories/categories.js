@@ -1,5 +1,5 @@
 import Category from "./category";
-import CATEGORIES from "./data";
+import CATEGORIES from "../data";
 
 export default function Categories({ readyToOrder }) {
   return CATEGORIES.map((category, index) => (
