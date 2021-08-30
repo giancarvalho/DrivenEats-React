@@ -9,7 +9,7 @@ import Categories from "../categories/categories";
 export default function App() {
   const [status, setStatus] = useState("disabled");
   const [text, setText] = useState("Selecione os 3 itens para fechar o pedido");
-  const [cancel, setCancel] = useState(false);
+  const [renderFromReview, setRenderFromReview] = useState(false);
 
   function readyToOrder() {
     const { food, drink, dessert } = ORDER;
@@ -36,7 +36,7 @@ export default function App() {
                 <main>
                   <Categories
                     readyToOrder={readyToOrder}
-                    cancel={cancel}
+                    renderFromReview={renderFromReview}
                     {...props}
                   />
                 </main>
@@ -48,7 +48,10 @@ export default function App() {
             exact
             path="/review"
             render={(props) => (
-              <ConfirmOrder setCancel={setCancel} {...props} />
+              <ConfirmOrder
+                setRenderFromReview={setRenderFromReview}
+                {...props}
+              />
             )}
           ></Route>
         </Switch>

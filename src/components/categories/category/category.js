@@ -7,12 +7,12 @@ function isItemInOrder(category, name) {
 }
 
 function Item(props) {
-  const { category, readyToOrder, cancel } = props;
+  const { category, readyToOrder, renderFromReview } = props;
   const { image, name, description, price } = props.itemData;
   const [itemClass, setItemClass] = useState("item");
   const [amount, setAmount] = useState(1);
 
-  if (cancel) {
+  if (renderFromReview) {
     if (isItemInOrder(category, name)) {
       selectItem();
     }
@@ -73,7 +73,7 @@ function Item(props) {
 
 export default function Category(props) {
   const { description, category, items } = props.categoryData;
-  const { readyToOrder, cancel } = props;
+  const { readyToOrder, renderFromReview } = props;
 
   return (
     <div className="category">
@@ -84,7 +84,7 @@ export default function Category(props) {
             category={category}
             itemData={item}
             readyToOrder={readyToOrder}
-            cancel={cancel}
+            renderFromReview={renderFromReview}
             key={index}
           />
         ))}
