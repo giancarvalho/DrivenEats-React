@@ -18,7 +18,7 @@ function Item(props) {
     }
   }
 
-  function selectItem(deselect) {
+  function selectItem() {
     if (itemClass === "item") {
       setItemClass("item selected");
       if (!isItemInOrder(category, name)) {
@@ -26,16 +26,17 @@ function Item(props) {
       }
     }
 
-    if (deselect) {
-      setItemClass("item");
-      setAmount(1);
-      manageOrder({ name, category, operation: "remove" });
-    }
-
     readyToOrder();
   }
 
-  function changeQuantity(operator) {
+  function deselectItem() {
+    setItemClass("item");
+    setAmount(1);
+    manageOrder({ name, category, operation: "remove" });
+  }
+
+  function changeQuantity(click, operator) {
+    click.stopPropagation();
     if (operator === "+") {
       setAmount(amount + 1);
       manageOrder({ name, category, operation: "increase" });
@@ -43,7 +44,7 @@ function Item(props) {
       setAmount(amount - 1);
       manageOrder({ name, category, operation: "decrease" });
       if (amount - 1 === 0) {
-        selectItem(true);
+        deselectItem();
       }
     }
   }
@@ -58,11 +59,11 @@ function Item(props) {
           R$<span className="price">{price.toFixed(2)}</span>
         </p>
         <div className="amount">
-          <button className="decrease" onClick={() => changeQuantity("-")}>
+          <button className="decrease" onClick={(e) => changeQuantity(e, "-")}>
             -
           </button>
           <span>{amount}</span>
-          <button className="increase" onClick={() => changeQuantity("+")}>
+          <button className="increase" onClick={(e) => changeQuantity(e, "+")}>
             +
           </button>
         </div>
