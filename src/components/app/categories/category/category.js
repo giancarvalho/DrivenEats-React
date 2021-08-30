@@ -7,13 +7,13 @@ function isItemInOrder(category, name) {
 }
 //generates each item in the category
 function Item(props) {
-  const { category, readyToOrder, orderReady } = props;
+  const { category, readyToOrder, orderFull } = props;
   const { image, name, description, price } = props.itemData;
   const [itemClass, setItemClass] = useState("item");
   const [amount, setAmount] = useState(1);
 
   //selects again the item if user is coming from the review page
-  if (orderReady) {
+  if (orderFull) {
     if (isItemInOrder(category, name)) {
       selectItem();
     }
@@ -80,9 +80,8 @@ function isOrderConditionMet() {
 }
 
 export default function Category(props) {
-  const [orderReady] = useState(isOrderConditionMet());
   const { description, category, items } = props.categoryData;
-  const { readyToOrder } = props;
+  const { readyToOrder, orderFull } = props;
 
   return (
     <div className="category">
@@ -93,7 +92,7 @@ export default function Category(props) {
             category={category}
             itemData={item}
             readyToOrder={readyToOrder}
-            orderReady={orderReady}
+            orderFull={orderFull}
             key={index}
           />
         ))}

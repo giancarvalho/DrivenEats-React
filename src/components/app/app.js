@@ -12,12 +12,14 @@ export default function App() {
   //manages the state of checkout button
   const [status, setStatus] = useState("disabled");
   const [text, setText] = useState("Selecione os 3 itens para fechar o pedido");
-  //indicates if the user is coming from the review order page
+
+  function isOrderConditionMet() {
+    const { dishes, drinks, desserts } = ORDER;
+    return dishes.length > 0 && drinks.length > 0 && desserts.length > 0;
+  }
 
   function readyToOrder() {
-    const { dishes, drinks, desserts } = ORDER;
-
-    if (dishes.length > 0 && drinks.length > 0 && desserts.length > 0) {
+    if (isOrderConditionMet()) {
       setStatus("active");
       setText("Fechar pedido");
     } else {
@@ -37,7 +39,11 @@ export default function App() {
             render={(props) => (
               <>
                 <main>
-                  <Categories readyToOrder={readyToOrder} {...props} />
+                  <Categories
+                    readyToOrder={readyToOrder}
+                    orderMet={isOrderConditionMet}
+                    {...props}
+                  />
                 </main>
                 <BottomBar active={{ status, text }} {...props} />
               </>
