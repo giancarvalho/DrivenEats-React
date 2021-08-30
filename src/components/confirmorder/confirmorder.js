@@ -4,17 +4,18 @@ import formatAmount from "./scripts/formatAmount";
 import sendMessage from "./scripts/sendmessage";
 import ORDER from "../data/order";
 
+//iterates through each category to render each item
 function Items() {
   const categories = Object.keys(ORDER);
 
   return categories.map((category) => renderItems(ORDER[category]));
 }
-
+//renders each item in the review list
 function renderItems(category) {
   return category.map((item, index) => (
     <li key={index}>
       <p>
-        {item.item} {formatAmount(item.amount)}
+        {item.itemName} {formatAmount(item.amount)}
       </p>
       <p>R${(item.price * item.amount).toFixed(2)}</p>
     </li>

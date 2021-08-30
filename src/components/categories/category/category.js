@@ -3,15 +3,15 @@ import ORDER from "../../data/order";
 import manageOrder from "./scripts/selectitem";
 
 function isItemInOrder(category, name) {
-  return ORDER[category].some((item) => item.item === name);
+  return ORDER[category].some((item) => item.itemName === name);
 }
-
+//generates each item in the category
 function Item(props) {
   const { category, readyToOrder, renderFromReview } = props;
   const { image, name, description, price } = props.itemData;
   const [itemClass, setItemClass] = useState("item");
   const [amount, setAmount] = useState(1);
-
+  //selects again the items if user is coming from the review page
   if (renderFromReview) {
     if (isItemInOrder(category, name)) {
       selectItem();

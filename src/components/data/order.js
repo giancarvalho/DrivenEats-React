@@ -1,3 +1,3 @@
-let ORDER = { food: [], drink: [], dessert: [] };
+let ORDER = { dishes: [], drinks: [], desserts: [] };
 
 export default ORDER;

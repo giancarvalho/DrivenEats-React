@@ -1,5 +1,5 @@
 import ORDER from "../../data/order";
-
+//sums item prices in each of each category
 function sumCategory(category) {
   let totalCategory = 0;
 

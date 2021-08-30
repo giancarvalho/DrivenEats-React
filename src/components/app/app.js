@@ -1,24 +1,26 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState } from "react";
 import BottomBar from "../bottombar/bottombar";
 import Header from "../header/header";
-import { useState } from "react";
-import ORDER from "../data/order";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ConfirmOrder from "../confirmorder/confirmorder";
 import Categories from "../categories/categories";
+import ORDER from "../data/order";
 
 export default function App() {
+  //manages the state of checkout button
   const [status, setStatus] = useState("disabled");
   const [text, setText] = useState("Selecione os 3 itens para fechar o pedido");
+  //indicates if the user is coming from the review order page
   const [renderFromReview, setRenderFromReview] = useState(false);
 
   function readyToOrder() {
-    const { food, drink, dessert } = ORDER;
+    const { dishes, drinks, desserts } = ORDER;
 
-    if (food.length > 0 && drink.length > 0 && dessert.length > 0) {
+    if (dishes.length > 0 && drinks.length > 0 && desserts.length > 0) {
       setStatus("active");
       setText("Fechar pedido");
     } else {
-      setStatus(null);
+      setStatus("disabled");
       setText("Selecione os 3 itens para fechar o pedido");
     }
   }

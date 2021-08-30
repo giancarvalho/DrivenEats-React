@@ -1,6 +1,7 @@
+//items available on the menu
 const AVAILABLE_ITEMS = [
   {
-    category: "food",
+    category: "dishes",
     description: "Primeiro, seu prato",
     items: [
       {
@@ -24,7 +25,7 @@ const AVAILABLE_ITEMS = [
     ],
   },
   {
-    category: "drink",
+    category: "drinks",
     description: "Agora, sua bebida",
     items: [
       {
@@ -48,7 +49,7 @@ const AVAILABLE_ITEMS = [
     ],
   },
   {
-    category: "dessert",
+    category: "desserts",
     description: "Por fim, sua sobremesa",
     items: [
       {
@@ -58,7 +59,7 @@ const AVAILABLE_ITEMS = [
         image: "brigadeiro.jpg",
       },
       {
-        name: "Cenoura",
+        name: "Bolo de Cenoura",
         description: "Inclui cobertura de chocolate",
         price: 3.9,
         image: "cenoura.png",

@@ -4,24 +4,25 @@ import formatAmount from "./formatAmount";
 const RESTAURANT_NUMBER = "553099990000";
 
 export default function sendMessage() {
-  const { food, drink, dessert } = ORDER;
-  let foodList = "";
-  let drinkList = "";
-  let dessertList = "";
+  const { dishes, drinks, desserts } = ORDER;
+  let dishesList = "";
+  let drinksList = "";
+  let dessertsList = "";
 
-  food.forEach(
-    (dish) => (foodList += `${dish.item} ${formatAmount(dish.amount)}\n`)
+  dishes.forEach(
+    (dish) => (dishesList += `${dish.itemName} ${formatAmount(dish.amount)}\n`)
   );
-  drink.forEach(
-    (drink) => (drinkList += `${drink.item} ${formatAmount(drink.amount)}\n`)
+  drinks.forEach(
+    (drink) =>
+      (drinksList += `${drink.itemName} ${formatAmount(drink.amount)}\n`)
   );
-  dessert.forEach(
+  desserts.forEach(
     (dessert) =>
-      (dessertList += `${dessert.item} ${formatAmount(dessert.amount)}\n`)
+      (dessertsList += `${dessert.itemName} ${formatAmount(dessert.amount)}\n`)
   );
 
   let message = encodeURIComponent(
-    `Olá, gostaria de fazer o pedido: \n - Prato: ${foodList}  \n - Bebida: ${drinkList} \n - Sobremesa: ${dessertList} \n Total: R$ ${calculateTotal()} \n`
+    `Olá, gostaria de fazer o pedido: \n - Prato: ${dishesList}  \n - Bebida: ${drinksList} \n - Sobremesa: ${dessertsList} \n Total: R$ ${calculateTotal()} \n`
   );
   window.open(`https://wa.me/${RESTAURANT_NUMBER}?text=${message}`, "_self");
 }
