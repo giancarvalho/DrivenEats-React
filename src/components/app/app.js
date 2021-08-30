@@ -1,17 +1,18 @@
+import "../../css/reset.css";
+import "../../css/styles.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState } from "react";
-import BottomBar from "../bottombar/bottombar";
-import Header from "../header/header";
-import ConfirmOrder from "../confirmorder/confirmorder";
-import Categories from "../categories/categories";
-import ORDER from "../data/order";
+import BottomBar from "./bottombar/bottombar";
+import Header from "./header/header";
+import ConfirmOrder from "./confirmorder/confirmorder";
+import Categories from "./categories/categories";
+import ORDER from "./data/order";
 
 export default function App() {
   //manages the state of checkout button
   const [status, setStatus] = useState("disabled");
   const [text, setText] = useState("Selecione os 3 itens para fechar o pedido");
   //indicates if the user is coming from the review order page
-  const [renderFromReview, setRenderFromReview] = useState(false);
 
   function readyToOrder() {
     const { dishes, drinks, desserts } = ORDER;
@@ -36,26 +37,13 @@ export default function App() {
             render={(props) => (
               <>
                 <main>
-                  <Categories
-                    readyToOrder={readyToOrder}
-                    renderFromReview={renderFromReview}
-                    {...props}
-                  />
+                  <Categories readyToOrder={readyToOrder} {...props} />
                 </main>
                 <BottomBar active={{ status, text }} {...props} />
               </>
             )}
           ></Route>
-          <Route
-            exact
-            path="/review"
-            render={(props) => (
-              <ConfirmOrder
-                setRenderFromReview={setRenderFromReview}
-                {...props}
-              />
-            )}
-          ></Route>
+          <Route exact path="/review" component={ConfirmOrder}></Route>
         </Switch>
       </Router>
     </div>

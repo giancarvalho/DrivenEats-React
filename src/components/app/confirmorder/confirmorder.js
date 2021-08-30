@@ -42,11 +42,7 @@ export default function ConfirmOrder({ setRenderFromReview }) {
           <button className="confirm" onClick={() => sendMessage()}>
             Tudo certo, pode pedir
           </button>
-          <Link
-            to="/"
-            className="cancel"
-            onClick={() => setRenderFromReview(true)}
-          >
+          <Link to="/" className="cancel">
             Cancelar
           </Link>
         </div>

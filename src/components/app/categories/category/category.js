@@ -7,12 +7,13 @@ function isItemInOrder(category, name) {
 }
 //generates each item in the category
 function Item(props) {
-  const { category, readyToOrder, renderFromReview } = props;
+  const { category, readyToOrder, orderReady } = props;
   const { image, name, description, price } = props.itemData;
   const [itemClass, setItemClass] = useState("item");
   const [amount, setAmount] = useState(1);
-  //selects again the items if user is coming from the review page
-  if (renderFromReview) {
+
+  //selects again the item if user is coming from the review page
+  if (orderReady) {
     if (isItemInOrder(category, name)) {
       selectItem();
     }
@@ -47,6 +48,7 @@ function Item(props) {
         deselectItem();
       }
     }
+    readyToOrder();
   }
 
   return (
@@ -72,9 +74,15 @@ function Item(props) {
   );
 }
 
+function isOrderConditionMet() {
+  const { dishes, drinks, desserts } = ORDER;
+  return dishes.length > 0 && drinks.length > 0 && desserts.length > 0;
+}
+
 export default function Category(props) {
+  const [orderReady] = useState(isOrderConditionMet());
   const { description, category, items } = props.categoryData;
-  const { readyToOrder, renderFromReview } = props;
+  const { readyToOrder } = props;
 
   return (
     <div className="category">
@@ -85,7 +93,7 @@ export default function Category(props) {
             category={category}
             itemData={item}
             readyToOrder={readyToOrder}
-            renderFromReview={renderFromReview}
+            orderReady={orderReady}
             key={index}
           />
         ))}
