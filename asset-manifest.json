@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/foodcamp/static/js/main.19b789e7.chunk.js",
+    "main.js.map": "/foodcamp/static/js/main.19b789e7.chunk.js.map",
+    "runtime-main.js": "/foodcamp/static/js/runtime-main.15cefeaf.js",
+    "runtime-main.js.map": "/foodcamp/static/js/runtime-main.15cefeaf.js.map",
+    "static/js/2.53727768.chunk.js": "/foodcamp/static/js/2.53727768.chunk.js",
+    "static/js/2.53727768.chunk.js.map": "/foodcamp/static/js/2.53727768.chunk.js.map",
+    "index.html": "/foodcamp/index.html",
+    "static/js/2.53727768.chunk.js.LICENSE.txt": "/foodcamp/static/js/2.53727768.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.15cefeaf.js",
+    "static/js/2.53727768.chunk.js",
+    "static/js/main.19b789e7.chunk.js"
+  ]
+}
