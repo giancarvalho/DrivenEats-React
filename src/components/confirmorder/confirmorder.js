@@ -27,7 +27,7 @@ export default function ConfirmOrder({ setRenderFromReview }) {
     <main>
       <div className="review-order">
         <div className="category">
-          <p>Revisar seu pedido</p>
+          <p>Revise seu pedido</p>
           <div className="order-container">
             <ul>
               <Items />
